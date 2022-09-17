@@ -1,0 +1,32 @@
+.Features{
+    display: flex;
+    align-items: center;
+    
+    margin-top: 20px;
+    padding:  50px;
+    background-color: azure;
+    padding-top: 100px;
+    padding-bottom: 100px;
+
+    .items{
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+
+        .item{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+
+            img{
+                height: 150px;
+                width: 150px;
+            }
+
+            .title{
+                font-weight: 600;
+            }
+        }
+    }
+}

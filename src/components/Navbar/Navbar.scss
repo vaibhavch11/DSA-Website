@@ -1,0 +1,18 @@
+.navbar{
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    align-items: center;
+    // border: 1px solid rgb(238, 255, 88);
+    
+
+    .logo{
+        flex: 3;
+    }
+    .items{
+        display: flex;
+        justify-content: space-between;
+        flex: 4;
+    }
+   
+}
