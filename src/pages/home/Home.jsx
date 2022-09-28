@@ -2,10 +2,10 @@ import React from 'react'
 import Features from '../../components/Features/Features'
 import Main from '../../components/Main/Main'
 import Navbar from '../../components/Navbar/Navbar'
-import Topics from '../../components/Topics/Topics'
+import Cards from '../../components/Card/Cards'
 import "./Home.scss";
 
-import data from "../../CardStore.js";
+
 // import { useEffect } from "react";
 // import { useDispatch, useSelector } from "react-redux";
 // import db from "../firebase";
@@ -40,14 +40,7 @@ export const Home = () => {
        <hr className='line' />
 
 
-       {/* <div>
-       {
-        topics.map((data)=> <Topics name={data.topic} level={data.level}/>)
-        
-       }
-       </div> */}
-
-        <Topics />
+        <Cards />
     
       
    

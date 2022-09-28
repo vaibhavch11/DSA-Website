@@ -1,10 +1,11 @@
-import { Home } from "./pages/home/Home";
+import { Home } from "./pages/Home/Home";
 import {
   BrowserRouter,
   Routes,
   Route,
 } from "react-router-dom";
-import Recursion from "./pages/Recursion/Recursion";
+import Topic from "./pages/Topic/Topic";
+import Sidebar from "./components/Sidebar/Sidebar";
 
 
 function App() {
@@ -15,7 +16,34 @@ function App() {
          <Routes>
           
            <Route path="/" element={<Home />}></Route>
-           <Route path="/:id" element={<Recursion />}></Route>
+     
+           <Route path="/:id" element={<Topic />}></Route>
+           
+        
+           
+           
+           
+
+           {/* <Route path="/">
+            <Route index element={<Home />} />
+
+            <Route path=":DP">
+              <Route path=":id" element={<Recursion />}></Route>
+            </Route>
+
+            <Route path="Graph">
+              <Route path=":id" element={<Recursion />}></Route>
+            </Route>
+
+            <Route path="Tree">
+              <Route path=":id" element={<Recursion />}></Route>
+            </Route>
+
+            <Route path="LinkedList">
+               <Route path=":id" element={<Recursion />}></Route>
+            </Route>
+            
+          </Route> */}
 
          </Routes>
       </BrowserRouter>

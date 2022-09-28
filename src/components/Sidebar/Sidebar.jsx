@@ -11,9 +11,9 @@ import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import LogoutIcon from '@mui/icons-material/Logout';
 import QueryStatsIcon from '@mui/icons-material/QueryStats';
 import "./Sidebar.scss";
- import data from "../../TopicStore/DpStore/DpSideBar"
-import record from "../../TopicStore/DpStore/DpSideBar";
-import { NavLink, Outlet } from 'react-router-dom';
+//  import data from "../../Store/TopicStore"
+import record from "../../Store/TopicStore";
+import {Link, Outlet } from 'react-router-dom';
 
 const Sidebar = (paraObject) => {
 
@@ -54,9 +54,11 @@ const Sidebar = (paraObject) => {
                 
                 <p className="title">Introduction</p>
 
-                <NavLink to={`/${paraObject.para.id}/${record[id].introductions.first}`} >
+                {/* to={`/${paraObject.para.id}/${record[id].introductions.first}`} */}
+
+                <Link to="/" style={{textDecoration:'none'}}>
                   <li> <QueryStatsIcon className='icon'/> <span>{record[id].introductions.first}</span></li>
-                </NavLink>
+                </Link>
                 
                 <li> <NotificationsActiveIcon className='icon'/> <span>{record[id].introductions.secound}</span></li>
                   <li> <NotificationsActiveIcon className='icon'/> <span>{record[id].introductions.third}</span></li>

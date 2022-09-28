@@ -1,27 +1,26 @@
 import React from 'react'
 import "./Topics.scss"
-import { NavLink } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 
-import data from "../../CardStore"
-
-
+import data from "../../Store/CardStore"
 
 
-const Topics = () => {
+
+
+const Cards = () => {
   
   return (
 
 
     <div className='Topics'>
-       
      {data.map(user => {
       return (
-        <NavLink to={`/${user.title}`}> 
+        <Link to={`/${user.title}`}> 
           <div className="wrap">
            {/* <div className="left">difficulty Level : {user.level}</div> */}
            <div className="right">{user.title}</div>
           </div>
-          </NavLink>
+        </Link>
       )
       
      })}
@@ -32,7 +31,7 @@ const Topics = () => {
   )
 }
 
-export default Topics
+export default Cards
 
 
 
