@@ -1,4 +1,8 @@
-.content{
+.Main-context{
     display: flex;
-    flex: 4;
+    width: 100%;
+
+    .testData{
+        display: flex;
+    }
 }

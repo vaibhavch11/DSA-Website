@@ -13,9 +13,12 @@ const Topic = () => {
   return (
     <div className='recursion'>
           
+          <div className='topicDiv'>
+            <Sidebar para={id} />
+          </div>
           
-        <Sidebar para={id} />
-        <Content para={id} />
+        
+        {/* <Content para={id} /> */}
         
         
     </div>

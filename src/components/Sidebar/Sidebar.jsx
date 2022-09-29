@@ -14,8 +14,12 @@ import "./Sidebar.scss";
 //  import data from "../../Store/TopicStore"
 import record from "../../Store/TopicStore";
 import {Link, Outlet } from 'react-router-dom';
+import { useState } from 'react';
+import Content from "../../pages/content/Content"
 
 const Sidebar = (paraObject) => {
+
+  let [change, setChange] = useState(-1)
 
   console.log("here 2",paraObject.para.id);
   let key = paraObject.para.id;
@@ -43,6 +47,7 @@ const Sidebar = (paraObject) => {
  
   
   return (
+    <div className='box-div'>
     <div className='sidebar'>
 
        
@@ -56,31 +61,38 @@ const Sidebar = (paraObject) => {
 
                 {/* to={`/${paraObject.para.id}/${record[id].introductions.first}`} */}
 
-                <Link to="/" style={{textDecoration:'none'}}>
-                  <li> <QueryStatsIcon className='icon'/> <span>{record[id].introductions.first}</span></li>
-                </Link>
                 
-                <li> <NotificationsActiveIcon className='icon'/> <span>{record[id].introductions.secound}</span></li>
-                  <li> <NotificationsActiveIcon className='icon'/> <span>{record[id].introductions.third}</span></li>
+              <li onClick={() => {setChange(change + 1)}}> 
+              
+              <QueryStatsIcon className='icon'/> <span>{record[id].introductions.first}</span></li>
+
+                
+                <li onClick={() => {setChange(change + 1)}}> <NotificationsActiveIcon className='icon'/> <span>{record[id].introductions.secound}</span></li>
+                <li onClick={() => {setChange(change + 1)}}> <NotificationsActiveIcon className='icon'/> <span>{record[id].introductions.third}</span></li>
               
 
                 
                 <p className="title">Implementation</p>
-                <li> <SettingsSystemDaydreamIcon className='icon'/> <span>{record[id].implementation.java}</span></li>
-                <li> <PsychologyIcon className='icon'/> <span>{record[id].implementation.java}</span></li>
+                <li onClick={() => {setChange(change + 1)}}> <SettingsSystemDaydreamIcon className='icon'/> <span>{record[id].implementation.java}</span></li>
+                <li onClick={() => {setChange(change + 1)}}> <PsychologyIcon className='icon'/> <span>{record[id].implementation.java}</span></li>
                   
                 <p className="title">Problems</p>
-                <li> <PersonIcon className='icon'/> <span>{record[id].Problems.Ques1}</span></li>
-                <li> <Inventory2Icon className='icon'/> <span>{record[id].Problems.Ques2}</span></li>
-                <li> <BorderColorIcon className='icon'/> <span>{record[id].Problems.Ques3}</span></li>
-                <li> <LocalShippingIcon className='icon'/> <span>{record[id].Problems.Ques4}</span></li>
+                <li onClick={() => {setChange(change = 5)}}> <PersonIcon className='icon'/> <span>{record[id].Problems.Ques1}</span></li>
+                <li onClick={() => {setChange(change + 1)}}> <Inventory2Icon className='icon'/> <span>{record[id].Problems.Ques2}</span></li>
+                <li onClick={() => {setChange(change + 1)}}> <BorderColorIcon className='icon'/> <span>{record[id].Problems.Ques3}</span></li>
+                <li onClick={() => {setChange(change + 1)}}> <LocalShippingIcon className='icon'/> <span>{record[id].Problems.Ques4}</span></li>
 
 
                 <p className="title">Useful Articals</p>
-                <li><AccountCircleIcon className='icon'/> <span>{record[id].Articals.Section1}</span></li>
-                <li><LogoutIcon className='icon'/> <span>{record[id].Articals.Section2}</span></li>
+                <li onClick={() => {setChange(change + 1)}}><AccountCircleIcon className='icon'/> <span>{record[id].Articals.Section1}</span></li>
+                <li onClick={() => {setChange(change + 1)}}><LogoutIcon className='icon'/> <span>{record[id].Articals.Section2}</span></li>
             </ul>
         </div>
+    </div>
+    <div className='Content-box'>
+       <Content para={change}/>
+    </div>
+
     </div>
   )
 }

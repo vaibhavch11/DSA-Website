@@ -1,6 +1,12 @@
+.box-div{
+    display: flex;
+
+
 .sidebar{
     // background-color: lightcoral;
-    flex: 1;
+    display: flex;
+    min-width: 18vw;
+
     min-height: 100vh;
 
     .top{
@@ -76,4 +82,9 @@
         }
     }
 
+}
+.Content-box{
+    display: flex;
+    // width: 100%;
+}
 }
