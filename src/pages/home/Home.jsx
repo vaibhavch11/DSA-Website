@@ -4,6 +4,8 @@ import Main from '../../components/Main/Main'
 import Navbar from '../../components/Navbar/Navbar'
 import Cards from '../../components/Card/Cards'
 import "./Home.scss";
+import { useState,useEffect } from 'react'
+import axios from 'axios'
 
 
 // import { useEffect } from "react";
@@ -27,12 +29,34 @@ export const Home = () => {
 
   // let data = JSON.parse(jsonString);
   // const cards = data;
+
+  const [topic, setTopic] = useState([]);
+
+  useEffect(()=>{
+    async function getTopics(){
+      const response=await axios({
+        method:"get",
+        url:"http://localhost:3000/api/v1//topics/getTopics"
+      })
+      console.log("Inside api call",response);
+      response.map((element)=>{
+        return <Cards topicName={element.topicName}/>
+      });
+      setTopic(()=>{
+        return [...response]
+      });
+      console.log(topic)
+    }
+    getTopics();
+    },[])
+
   return (
     <div className='Home'>
 
         <Navbar />
         <Main />
         <Features />
+        {topic}
 
       <div className="cards">
 

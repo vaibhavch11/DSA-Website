@@ -1,29 +1,25 @@
 import React from 'react'
 import "./Topics.scss"
 import { Link } from 'react-router-dom'
-
-import data from "../../Store/CardStore"
-
-
+import axios from 'axios'
+import { useState,useEffect } from 'react'
 
 
-const Cards = () => {
+
+
+
+
+const Cards = (props) => {
+
+  
+
+
   
   return (
 
 
     <div className='Topics'>
-     {data.map(user => {
-      return (
-        <Link to={`/${user.title}`}> 
-          <div className="wrap">
-           {/* <div className="left">difficulty Level : {user.level}</div> */}
-           <div className="right">{user.title}</div>
-          </div>
-        </Link>
-      )
-      
-     })}
+      {props.topicName}
        
        
     </div>
