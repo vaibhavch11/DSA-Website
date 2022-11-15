@@ -36,18 +36,24 @@ export const Home = () => {
     async function getTopics(){
       const response=await axios({
         method:"get",
-        url:"http://localhost:3000/api/v1//topics/getTopics"
+        url:"http://localhost:3000/api/v1/topics/getTopics"
       })
-      console.log("Inside api call",response);
-      response.map((element)=>{
+      
+      let data=response.data;
+      data=data.data;
+      console.log("return data here",data);
+      data=data.map((element)=>{
         return <Cards topicName={element.topicName}/>
       });
-      setTopic(()=>{
-        return [...response]
+      console.log("After transaform",data);
+      setTopic((topic)=>{
+        return [...data]
       });
-      console.log(topic)
+      
     }
     getTopics();
+
+ 
     },[])
 
   return (
