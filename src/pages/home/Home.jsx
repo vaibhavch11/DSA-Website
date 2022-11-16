@@ -42,6 +42,7 @@ export const Home = () => {
       let data=response.data;
       data=data.data;
       console.log("return data here",data);
+      
       data=data.map((element)=>{
         return <Cards topicName={element.topicName}/>
       });
@@ -56,26 +57,27 @@ export const Home = () => {
  
     },[])
 
+    console.log(topic);
+
   return (
     <div className='Home'>
 
         <Navbar />
         <Main />
         <Features />
-        {topic}
-
-      <div className="cards">
+        <div className="cards">
 
        <div className="heading">Data Structures and Algorithms Topics</div>
        <hr className='line' />
 
-
-        <Cards />
-    
-      
-   
-       
       </div>
+      
+        <div className = 'cards_big_div'>
+          {topic}
+        </div>
+        
+
+      
         
     </div>
   )

@@ -11,17 +11,13 @@ import { useState,useEffect } from 'react'
 
 const Cards = (props) => {
 
-  
-
-
-  
   return (
 
-
-    <div className='Topics'>
-      {props.topicName}
-       
-       
+    <div className='Topics '>
+      <div className="text">
+        {props.topicName} 
+      </div>
+      
     </div>
     
   )
