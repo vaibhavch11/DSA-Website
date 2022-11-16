@@ -12,16 +12,11 @@ function App() {
   return (
     <div className="App">
  
-      <BrowserRouter>
          <Routes>
           
            <Route path="/" element={<Home />}></Route>
      
            <Route path="/:id" element={<Topic />}></Route>
-           
-        
-           
-           
            
 
            {/* <Route path="/">
@@ -46,7 +41,6 @@ function App() {
           </Route> */}
 
          </Routes>
-      </BrowserRouter>
     </div>
   );
 }

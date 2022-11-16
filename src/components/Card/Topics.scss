@@ -1,8 +1,12 @@
+
+
 .Topics{
     // width: 100%;
-    // display: flex;
     // margin: 5px;
-    width: 500px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
     margin: 5px;
     padding: 10px;
     
@@ -20,6 +24,12 @@
     box-shadow: 2px 4px 10px 1px rgba(201, 201, 201, 0.47);
     border-radius: 10px;
     height: 120px;
+
+    a{
+    text-decoration: none;
+}
+
+  
 
     
     .text{

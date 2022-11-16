@@ -5,19 +5,20 @@ import axios from 'axios'
 import { useState,useEffect } from 'react'
 
 
-
-
-
-
 const Cards = (props) => {
-
+ 
+  console.log(props.topicName + " Cards main hu");
   return (
 
-    <div className='Topics '>
+    <div className='Topics'>
+    <Link to={`/${props.topicName}`}>
+
+    
       <div className="text">
         {props.topicName} 
       </div>
-      
+    
+    </Link>
     </div>
     
   )

@@ -26,7 +26,7 @@ const data =  [
     },
     {
         // "id" : 2,
-        "title" : "Graph",
+        "title" : "Graphs",
         "introductions" : {
             "first" : "What is Graph?",
             "secound" : "How do Graph work?",

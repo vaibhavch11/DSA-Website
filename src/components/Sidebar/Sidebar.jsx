@@ -17,34 +17,8 @@ import {Link, Outlet } from 'react-router-dom';
 import { useState } from 'react';
 import Content from "../../pages/content/Content"
 
-const Sidebar = (paraObject) => {
+const Sidebar = ({para}) => {
 
-  let [change, setChange] = useState(-1)
-
-  console.log("here 2",paraObject.para.id);
-  let key = paraObject.para.id;
-  let id;
-
-  switch (key) {
-    case "Dynamic Programming":
-      id = 0;
-      break;
-    
-    case "Graph":
-      id = 1;
-      break;
-
-    case "Tree":
-      id = 2;
-      break;
-
-    case "LinkedList":
-      id = 3;
-      break;
-    default:
-      break;
-  }
- 
   
   return (
     <div className='box-div'>
@@ -55,46 +29,52 @@ const Sidebar = (paraObject) => {
             <ul>
                 <p className="title"></p>
                 
-                  <li> <DashboardIcon className='icon'/> <span>{record[id].title}</span></li>
+                  <li> <DashboardIcon className='icon'/> <span>TopicName</span></li>
                 
                 <p className="title">Introduction</p>
 
                 {/* to={`/${paraObject.para.id}/${record[id].introductions.first}`} */}
 
                 
-              <li onClick={() => {setChange(change + 1)}}> 
+              <li o> 
               
-              <QueryStatsIcon className='icon'/> <span>{record[id].introductions.first}</span></li>
+              <QueryStatsIcon className='icon'/> <span>What</span></li>
 
                 
-                <li onClick={() => {setChange(change + 1)}}> <NotificationsActiveIcon className='icon'/> <span>{record[id].introductions.secound}</span></li>
-                <li onClick={() => {setChange(change + 1)}}> <NotificationsActiveIcon className='icon'/> <span>{record[id].introductions.third}</span></li>
+                <li > <NotificationsActiveIcon className='icon'/> <span>When</span></li>
+                <li > <NotificationsActiveIcon className='icon'/> <span>How</span></li>
               
 
                 
                 <p className="title">Implementation</p>
-                <li onClick={() => {setChange(change + 1)}}> <SettingsSystemDaydreamIcon className='icon'/> <span>{record[id].implementation.java}</span></li>
-                <li onClick={() => {setChange(change + 1)}}> <PsychologyIcon className='icon'/> <span>{record[id].implementation.java}</span></li>
+                <li > <SettingsSystemDaydreamIcon className='icon'/> <span>Java</span></li>
+                <li > <PsychologyIcon className='icon'/> <span>C++</span></li>
                   
                 <p className="title">Problems</p>
-                <li onClick={() => {setChange(change = 5)}}> <PersonIcon className='icon'/> <span>{record[id].Problems.Ques1}</span></li>
-                <li onClick={() => {setChange(change + 1)}}> <Inventory2Icon className='icon'/> <span>{record[id].Problems.Ques2}</span></li>
-                <li onClick={() => {setChange(change + 1)}}> <BorderColorIcon className='icon'/> <span>{record[id].Problems.Ques3}</span></li>
-                <li onClick={() => {setChange(change + 1)}}> <LocalShippingIcon className='icon'/> <span>{record[id].Problems.Ques4}</span></li>
+                <li > <PersonIcon className='icon'/> <span>Problem Ques1</span></li>
+                <li > <Inventory2Icon className='icon'/> <span>Problem Ques2</span></li>
+                <li > <BorderColorIcon className='icon'/> <span>Problem Ques3</span></li>
+                <li > <LocalShippingIcon className='icon'/> <span>Problem Ques4</span></li>
 
-
-                <p className="title">Useful Articals</p>
-                <li onClick={() => {setChange(change + 1)}}><AccountCircleIcon className='icon'/> <span>{record[id].Articals.Section1}</span></li>
-                <li onClick={() => {setChange(change + 1)}}><LogoutIcon className='icon'/> <span>{record[id].Articals.Section2}</span></li>
             </ul>
         </div>
     </div>
-    <div className='Content-box'>
-       <Content para={change}/>
-    </div>
-
     </div>
   )
 }
 
 export default Sidebar
+
+// {
+//   topicName : "Dynamic Programming"
+//   ,
+//   introductions : {
+//       "first" : "What is DP?",
+//       "secound" : "How do DP work?",
+//       "third" : "When do we use it?"
+//   },
+//   implementation : {
+//       "java" : "Java",
+//       "C++" : "C++"
+//   }
+// }
