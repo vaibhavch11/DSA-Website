@@ -36,7 +36,7 @@ export const Home = () => {
     async function getTopics(){
       const response=await axios({
         method:"get",
-        url:"http://localhost:3000/api/v1/topics/getTopics"
+        url:"http://localhost:5000/api/v1/topics/getTopics"
       })
       
       let data=response.data;
