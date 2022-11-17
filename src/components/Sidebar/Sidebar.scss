@@ -29,7 +29,7 @@
             
                font-size:10px;
                 font-weight:bold;
-                color:#999;
+                color:#FFFFFF;
                margin-top:15px;
                margin-bottom:5px;
              }
@@ -52,7 +52,7 @@
                 span{
                     font-size: 13px;
                     font-weight: 600;
-                    color: #888;
+                    color:#FFFFFF;
                     margin-left: 10px;
                 }
              }
@@ -86,5 +86,14 @@
 .Content-box{
     display: flex;
     // width: 100%;
+}
+.list_item_sidebar{
+    font-size: 13px;
+                    font-weight: 600;
+                    color: #FFFFFF;
+                    margin-left: 10px;
+}
+#topicHead{
+    font-size: 25px;
 }
 }

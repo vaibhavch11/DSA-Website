@@ -14,10 +14,26 @@ import "./Sidebar.scss";
 //  import data from "../../Store/TopicStore"
 import record from "../../Store/TopicStore";
 import {Link, Outlet } from 'react-router-dom';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import Content from "../../pages/content/Content"
 
-const Sidebar = ({para}) => {
+
+const Sidebar = ({data}) => {
+  console.log(data);
+
+  const [introData,setIntroData]=useState([]);
+useEffect(()=>{
+  setIntroData((introData)=>{
+    let arr=[];
+    let dataObjectArray=Object.entries(data.introductions);
+    for(var i=0;i<dataObjectArray.length;++i){
+      arr.push(<li className="list_item_sidebar" key={i}>{dataObjectArray[i][0]}</li>)
+    }
+    console.log(arr);
+    return [...arr];
+  })
+},[])
+
 
   
   return (
@@ -29,21 +45,16 @@ const Sidebar = ({para}) => {
             <ul>
                 <p className="title"></p>
                 
-                  <li> <DashboardIcon className='icon'/> <span>TopicName</span></li>
+                  <li > <DashboardIcon className='icon'/> <span id='topicHead'>{data.topicName}</span></li>
                 
                 <p className="title">Introduction</p>
 
                 {/* to={`/${paraObject.para.id}/${record[id].introductions.first}`} */}
 
                 
-              <li o> 
-              
-              <QueryStatsIcon className='icon'/> <span>What</span></li>
-
+              {/*into data*/}
                 
-                <li > <NotificationsActiveIcon className='icon'/> <span>When</span></li>
-                <li > <NotificationsActiveIcon className='icon'/> <span>How</span></li>
-              
+                {introData}
 
                 
                 <p className="title">Implementation</p>
