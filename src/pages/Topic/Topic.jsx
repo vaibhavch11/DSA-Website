@@ -12,6 +12,7 @@ import { Link, useParams,useLocation } from 'react-router-dom'
 // } from "react-router-dom";
 
 import { useState,useEffect } from 'react';
+import Intro from '../Introduction/Intro';
 
 const Topic = () => {
 
@@ -40,6 +41,7 @@ const Topic = () => {
     console.log(response2)
     let tempArr=[];
     tempArr.push(<Sidebar className="sidebar" data={response2}/>);
+    tempArr.push(<Intro className="Intro" data={response2}/>);
     setTopicContent((topicContent)=>{
       return [...tempArr];
     })
@@ -54,16 +56,11 @@ const Topic = () => {
           
           <div className='topicDiv'>
 
-            {/* <Route path= {`/${id}`} > */}
-             {topicContent}
-            {/* </Route> */}
+             {topicContent[0]}
+             {topicContent[1]}
             
           </div>
-          
-        
-        {/* <Content para={id} /> */}
-        
-        
+
     </div>
   )
 }
