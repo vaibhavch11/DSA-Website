@@ -13,6 +13,7 @@ import { Link, useParams,useLocation } from 'react-router-dom'
 
 import { useState,useEffect } from 'react';
 import Intro from '../Introduction/Intro';
+import Navbar from '../../components/Navbar/Navbar';
 
 const Topic = () => {
 
@@ -53,11 +54,15 @@ const Topic = () => {
 
   return (
     <div className='recursion'>
+
+         <Navbar />
           
           <div className='topicDiv'>
+          
 
              {topicContent[0]}
              {topicContent[1]}
+            
             
           </div>
 

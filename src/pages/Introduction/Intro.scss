@@ -1,0 +1,17 @@
+.introData{
+    display: flex;
+     flex-direction: column;
+     align-items: center;
+     margin-top: 50px;
+     margin-bottom: 50px;
+
+     .introHeading{
+        font-size: 20px;
+        font-weight: 700;
+     }
+
+     .introPara{
+        padding: 20px;
+     }
+
+}
