@@ -1,12 +1,17 @@
 import React from 'react'
 import { useState,useEffect } from 'react';
 import "../Introduction/Intro.scss";
+import TeamTopicPage from '../teamTopicPage/teamTopicPage';
 
 function Intro({data}) {
 
   console.log(data , "Intro main hu");
 
+  
+
    const [intro, setIntro] = useState([]);
+
+   
 
    useEffect(() => {
      setIntro((intro)=>{
@@ -20,8 +25,8 @@ function Intro({data}) {
 
        for(var i = 0;i<introObjectArray.length;++i){
         arr.push(<div className="introData" >
-                 <h1 className='introHeading'>{introObjectArray[i][0]}</h1>
-                  <p className='introPara'>{introObjectArray[i][1]}</p>
+                 <h1 className='introHeading' id={`${introObjectArray[i][0]}`}>{introObjectArray[i][0]}</h1>
+                 <p className='introPara'>{introObjectArray[i][1]}</p>
           </div>)
        }
        return [...arr];
@@ -35,8 +40,10 @@ function Intro({data}) {
    
   return (
     <div>
+
       
   {intro}
+  <TeamTopicPage/>
     </div>
     
   )

@@ -16,7 +16,7 @@ import record from "../../Store/TopicStore";
 import {Link, Outlet } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import Content from "../../pages/content/Content"
-
+import { HashLink } from 'react-router-hash-link';
 
 const Sidebar = ({data}) => {
   console.log(data);
@@ -27,7 +27,7 @@ useEffect(()=>{
     let arr=[];
     let dataObjectArray=Object.entries(data.introductions);
     for(var i=0;i<dataObjectArray.length;++i){
-      arr.push(<li className="list_item_sidebar" key={i}>{dataObjectArray[i][0]}</li>)
+      arr.push(<HashLink to={`#${dataObjectArray[i][0]}`}><li className="list_item_sidebar" key={i}>{dataObjectArray[i][0]}</li></HashLink>)
     }
     console.log(arr);
     return [...arr];
