@@ -1,43 +1,74 @@
 import React, { Component } from "react";
 import { Editor } from "react-draft-wysiwyg";
-import { EditorState, convertToRaw} from "draft-js";
+
 import "react-draft-wysiwyg/dist/react-draft-wysiwyg.css";
-import draftToHtml from "draftjs-to-html";
+import { EditorState, convertToRaw, ContentState } from 'draft-js';
+
+import draftToHtml from 'draftjs-to-html';
+import htmlToDraft from 'html-to-draftjs';
 
 export default class teamTopicPage extends Component {
 
-    state = {
-      editorState: EditorState.createEmpty(),
-    }
+    constructor(props) {
+        super(props);
+        this.state={
+            readOnlyState:true
+        }
+       let  dataObjectArray= Object.entries(this.props.data);
+       
+        let string_html_data='';
+
+       let subTopicArray=[];
+        
+        for(var i=1;i<dataObjectArray.length;++i){
+            subTopicArray.push(Object.entries(dataObjectArray[i][1]));
+        }
+    
+        //converting json to html string
+        for(var i=0;i<subTopicArray.length;++i){
+            string_html_data=string_html_data+subTopicArray[i][0]+subTopicArray[i][1];
+        }
+        const contentBlock = htmlToDraft(string_html_data);
+        if (contentBlock) {
+          const contentState = ContentState.createFromBlockArray(contentBlock.contentBlocks);
+          const editorState = EditorState.createWithContent(contentState);
+          this.state = {
+            editorState,
+            
+          };
+        }
+       
+        this.changeReadOnly=this.changeReadOnly.bind(this)
+      }
+
+      componentDidUpdate(prevProps){
+        console.log("inside did update")
+        this.setState={
+            readOnlyState:!this.readOnlyState
+        }
+      }
+    
+    
 
     onEditorStateChange = (editorState) => {
-       this.setState({
+       this.setState={
         editorState,
-       });
+       };
     }
 
     
 
-    dataObjectArray= Object.entries(this.props.data);
-    string_html_data='';
+    
 
-    subTopicArray=[];
-    for(var i=1;i<dataObjectArray.length;++i){
-        subTopicArray.push(Object.entries(dataObjectArray[i][1]));
-    }
+    
+  
 
-    //converting json to html string
-    for(var i=0;i<subTopicArray.length;++i){
-        string_html_data=string_html_data+subTopicArray[i][0]+subTopicArray[i][1];
+    changeReadOnly=()=>{
+        return !this.readOnlyState;
     }
 
 
-
-    contentBlock=htmlToDraft(string_html_data);
-    if (contentBlock) {
-      const contentState = ContentState.createFromBlockArray(contentBlock.contentBlocks);
-      editorState = EditorState.createWithContent(contentState);
-  }
+    
     
 
 
@@ -53,11 +84,11 @@ export default class teamTopicPage extends Component {
           wrapperClassName="wrapperClassName"
           editorClassName="editorClassName"
           onEditorStateChange={this.onEditorStateChange}
-          // readOnly = {true}
+          readOnly = {this.state.readOnlyState}
         />
-        
+        {console.log("this is read only state",this.state.readOnlyState)}
         <textarea disabled value={draftToHtml(convertToRaw(editorState.getCurrentContent(editorState.getCurrentContent())))}></textarea>
-        <button  type="button">Edit!</button>
+        <button onClick={()=>(this.changeReadOnly)} type="button">Edit!</button>
       </div>
     );
   }

@@ -65,7 +65,7 @@ export const Home = () => {
     <div className='Home'>
  
       {/* <Login /> */}
-      <Signup />
+      
         <Navbar />
         <Main />
         <Features />

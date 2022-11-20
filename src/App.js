@@ -6,6 +6,7 @@ import {
 } from "react-router-dom";
 import Topic from "./pages/Topic/Topic";
 import Sidebar from "./components/Sidebar/Sidebar";
+import Signup from "./pages/Signup/Signup";
 
 
 
@@ -19,6 +20,8 @@ function App() {
            <Route path="/" element={<Home />}></Route>
      
            <Route path="/:id" element={<Topic />}></Route>
+
+           <Route path="signUp" element={<Signup />}></Route>
            
 
 
