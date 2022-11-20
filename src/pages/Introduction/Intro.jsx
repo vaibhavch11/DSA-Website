@@ -43,7 +43,7 @@ function Intro({data}) {
 
       
   {intro}
-  <TeamTopicPage/>
+  <TeamTopicPage data={data}/>
     </div>
     
   )

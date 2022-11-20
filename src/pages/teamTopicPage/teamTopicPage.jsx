@@ -1,13 +1,13 @@
 import React from 'react'
 import { useState,useEffect } from 'react';
 import "../Introduction/Intro.scss"
-import { EditorState, convertToRaw } from 'draft-js';
+import { EditorState, convertToRaw, ContentState } from 'draft-js';
 import { Editor } from 'react-draft-wysiwyg';
 import draftToHtml from 'draftjs-to-html';
 import htmlToDraft from 'html-to-draftjs';
 
 function TeamTopicPage({data}){
-    
+    console.log("Inside team topic page");
     
     let dataObjectArray= Object.entries(data);
     let string_html_data='';
@@ -23,7 +23,7 @@ function TeamTopicPage({data}){
     }
     
     //converting html string to draft
-    const contentBlock=htmlToDraft(data);
+    const contentBlock=htmlToDraft(string_html_data);
     function changeToEdit(){
         setEdit((edit)=>{
             return true;
@@ -38,14 +38,14 @@ function TeamTopicPage({data}){
     }
     
 
-       console.log(introObjectArray , "data object in useEffect");
+       
     return (
         <div>
           <Editor
             editorState={editorState}
             wrapperClassName="demo-wrapper"
             editorClassName="demo-editor"
-            onEditorStateChange={this.onEditorStateChange}
+            onEditorStateChange={changeToEdit}
             readOnly={edit}
           />
           <textarea
