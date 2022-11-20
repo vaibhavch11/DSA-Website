@@ -6,6 +6,8 @@ import Cards from '../../components/Card/Cards'
 import "./Home.scss";
 import { useState,useEffect } from 'react'
 import axios from 'axios'
+import Login from '../Login/Login'
+import Signup from '../Signup/Signup'
 
 
 // import { useEffect } from "react";
@@ -61,7 +63,9 @@ export const Home = () => {
 
   return (
     <div className='Home'>
-
+ 
+      {/* <Login /> */}
+      <Signup />
         <Navbar />
         <Main />
         <Features />

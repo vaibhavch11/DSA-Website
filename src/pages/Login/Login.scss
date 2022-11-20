@@ -1,0 +1,68 @@
+.login{
+    display: flex;
+    flex-direction: column;
+    width: 100vw;
+    height: 100vh;
+    align-items: center;
+    justify-content: center;
+    background-color: azure;
+    
+
+
+        .container{
+           
+            display: flex;
+            flex-direction: column;
+
+
+            .loginSection{
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+
+                form{
+
+                    .inputSection{
+                        margin: 10px;
+                        
+                        button{
+                            display: flex;
+                            justify-content: center;
+                            align-items: center;
+                        }
+                    }
+                    input{
+                        padding: 10px;
+                        border-radius: 5px;
+                        border: 1px solid black;
+                    }
+
+                   
+                }
+
+                
+            }
+
+            .signupSection{
+                display: flex;
+                flex-direction: column;
+
+                .signupText{
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                }
+
+                .signupSocial{
+                    display: flex;
+
+                    .social{
+                        background-color:aquamarine;
+                        border-radius: 20px;
+                    }
+                }
+            }
+        }
+
+    
+}
