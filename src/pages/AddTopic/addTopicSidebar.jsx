@@ -1,36 +1,11 @@
 import { useState } from "react"
 import MyForm from "../../components/Form/Form"
+import FormGenerator from "../../components/FormGenerator/FormGenerator"
 const AddTopicSidebar=(props)=>{
-    const [topicName, setTopicName] = useState("")
-    const [segment, setSegment] = useState([])
     
+   
 
-    function addSegment(event){
-        setSegment((prevSegment)=>{
-            let uniqueKey=Math.floor(Math.random() * 100000);
-            return [...prevSegment,
-            <div id={uniqueKey}><MyForm key={uniqueKey} uniqueId={uniqueKey} onRemoveClick={removeSegment} updateTextEditor={props.getFormData}/>
-            
-            </div>]
-        })
-    }
-    function removeSegment(event){
-        
-        
-        setSegment((prevSegment)=>{
-            console.log(event.target.id);
-            var newArr=prevSegment;
-           for( var i=0;i<newArr.length;++i){
-            console.log("reached here");
-            if(newArr[i].props.id==event.target.id){
-                newArr.splice(i,1);
-            }
-           }
-            return [...newArr]
-          
-            
-        })
-    }
+
    
     
    
@@ -39,7 +14,7 @@ const AddTopicSidebar=(props)=>{
         const value=event.target.value;
         console.log(event.target.value);
         
-        setTopicName((prevtopicName)=>{
+        props.setTopicName((prevtopicName)=>{
             console.log(value);
             return value;
         })
@@ -51,15 +26,13 @@ return (<div>
         name="topic-name"
         type="text"
         placeholder="Enter Topic Name"
-        value={topicName}
+        value={props.topicName}
         onChange={handleTopiChange}
         />
         
     </form>
-    <button type="button" onClick={addSegment} className="segment-add-button">+</button>
-    <div>
-    {segment}
-    </div>
+    
+    <FormGenerator />
    
 </div>)
 }

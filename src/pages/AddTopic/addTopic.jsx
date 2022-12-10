@@ -7,23 +7,39 @@ import "./addTopicSidebar.scss"
 import axios from 'axios'
 const AddTopic=()=>{
     const [textContent, setTextContent] = useState("");
+    const [formArr,setFormArr]=useState([]);
+    const [topicName, setTopicName] = useState("");
+    const [submitState, setsubmitState] = useState(false);
+    const [formData, setformData] = useState([])
+
+    console.log("form data array",formData);
+    
+    //...............handeling submit button...................................
     function handleSubmit(){
+       console.log("here is the form arr",formArr[0].props.children.props);
+       
+       setsubmitState((prevValue)=>{
         
+        return prevValue;
+       })
+       console.log("here is the topic name",topicName);
     }
+    //...................getting form data to render on the text editor not workint currently..................................
   function getFormData(value){
     console.log("reached in getForm data and value is ",value)
+    
     setTextContent((prevText)=>{
         
         return value
     })
   }
-  function setFormData(){
-
-  }
+//.....................will be triggered when submit is called and will get array of all the form data................................
+  
+  
 return (<div className="main-div">
     <Navbar></Navbar>
     <div className="content-div">
-    <AddTopicSidebar getFormData={getFormData}/>
+    <AddTopicSidebar getFormData={getFormData} setFormArr={setFormArr} formArr={formArr} topicName={topicName} setTopicName={setTopicName} submitState={submitState} setsubmitState={setsubmitState} formData={formData} setformData={setformData}/>
     <MyEditor textData={textContent}/>
     
     </div>
