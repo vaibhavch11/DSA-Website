@@ -16,10 +16,11 @@ const Excalidraw = () => {
 
  return (
   
-      <>
+      <div>
         <h1> Excalidraw with Next </h1>
         <div style={{ height: "500px", margin: "150px", border:"1px solid black" }}>{Comp && <Comp />}</div>
-      </>
+        
+      </div>
     
   );
   
