@@ -3,7 +3,7 @@ import {useState}from 'react';
 
 
 
-const MyEditor=({textData})=> {
+const MyEditor=({textData,setTextContent})=> {
     
    
  
@@ -16,6 +16,9 @@ const MyEditor=({textData})=> {
     initData={`${textData}`}
       onChange={(event) => {
         console.log('Editor content changed:', event.editor.getData());
+        setTextContent((prevValue)=>{
+          return event.editor.getData();
+        })
       }}
     />
   );

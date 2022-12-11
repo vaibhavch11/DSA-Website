@@ -13,6 +13,7 @@ const AddTopic=()=>{
     const [formData, setformData] = useState([])
 
     console.log("form data array",formData);
+    console.log("here is the text content of ",textContent);
     
     //...............handeling submit button...................................
     function handleSubmit(){
@@ -40,7 +41,7 @@ return (<div className="main-div">
     <Navbar></Navbar>
     <div className="content-div">
     <AddTopicSidebar getFormData={getFormData} setFormArr={setFormArr} formArr={formArr} topicName={topicName} setTopicName={setTopicName} submitState={submitState} setsubmitState={setsubmitState} formData={formData} setformData={setformData}/>
-    <MyEditor textData={textContent}/>
+    <MyEditor textData={textContent} setTextContent={setTextContent}/>
     
     </div>
     <button type="submit" onClick={handleSubmit}>Submit!</button>
