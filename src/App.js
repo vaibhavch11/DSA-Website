@@ -14,8 +14,10 @@ import AddProblem from "./pages/addProblem/addProblem";
 
 
 import ExcaliCarosule from "./components/ExcaliCarosule/ExcaliCarosule";
+import AutocompleteSearch from "./components/SearchBar/searchBar";
 // import Carousel from "./components/test/test";
-
+import 'bootstrap/dist/css/bootstrap.min.css';
+import 'bootstrap/dist/js/bootstrap.min.js';
 
 
 function App() {
@@ -38,6 +40,8 @@ function App() {
            <Route path="/:id" element={<Topic />}></Route>
 
            <Route path="signUp" element={<Signup />}></Route>
+           <Route path="/searchBar" element={<AutocompleteSearch />}></Route>
+
            
 
 
