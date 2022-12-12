@@ -10,6 +10,7 @@ import Signup from "./pages/Signup/Signup";
 import Test from "./pages/test/test";
 import AddTopic  from "./pages/AddTopic/addTopic";
 import AddProblem from "./pages/addProblem/addProblem";
+import ExcaliCarosule from "./components/ExcaliCarosule/ExcaliCarosule"
 
 
 
@@ -22,6 +23,7 @@ function App() {
           
            <Route path="/" element={<Home />}></Route>
            <Route path="/textEditor" element={<Test />}></Route>
+           <Route path="/excali" element={<ExcaliCarosule />}></Route>
            <Route path="/addProblem" element={<AddProblem />}></Route>
            
            <Route path="/addTopic" element={<AddTopic />}></Route>
