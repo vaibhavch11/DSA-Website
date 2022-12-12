@@ -14,6 +14,7 @@ import AddProblem from "./pages/addProblem/addProblem";
 
 
 import ExcaliCarosule from "./components/ExcaliCarosule/ExcaliCarosule";
+import ExcalidrawComp from "./components/Excalidraw/Excalidraw";
 // import Carousel from "./components/test/test";
 
 
@@ -28,7 +29,7 @@ function App() {
 
            <Route path="/" element={<Home />}></Route>
            <Route path="/textEditor" element={<Test />}></Route>
-           <Route path="/excali" element={<ExcaliCarosule />}></Route>
+           <Route path="/excali" element={<ExcalidrawComp />}></Route>
 
            <Route path="/addProblem" element={<AddProblem />}></Route>
            {/* <Route path="/cars" element={<Carousel />}></Route> */}
