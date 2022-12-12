@@ -14,7 +14,9 @@ import AddProblem from "./pages/addProblem/addProblem";
 
 
 import ExcaliCarosule from "./components/ExcaliCarosule/ExcaliCarosule";
+
 import AutocompleteSearch from "./components/SearchBar/searchBar";
+
 // import Carousel from "./components/test/test";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.min.js';
@@ -30,7 +32,7 @@ function App() {
 
            <Route path="/" element={<Home />}></Route>
            <Route path="/textEditor" element={<Test />}></Route>
-           <Route path="/excali" element={<ExcaliCarosule />}></Route>
+           <Route path="/excali" element={<ExcalidrawComp />}></Route>
 
            <Route path="/addProblem" element={<AddProblem />}></Route>
            {/* <Route path="/cars" element={<Carousel />}></Route> */}
