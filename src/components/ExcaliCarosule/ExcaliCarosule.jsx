@@ -53,13 +53,14 @@ const ExcaliCarosule = (props) => {
   return (
     <div>
         <button className='add' onClick={handleClick}>+</button>
-       
-        {/* <button className='add' onClick={}>-</button> */}
-        <Slider {...settings}>
+
+       {addPages}
+        
+        {/* <Slider {...settings}>
       {addPages.map((item) => (
         <div>{item}</div>
       ))}
-    </Slider>
+    </Slider> */}
         
         
     </div>
