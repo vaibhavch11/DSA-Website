@@ -1,15 +1,21 @@
 .searchBox{
 
+ display: flex;
+ align-items: center;
+ flex-direction: row;
+ width: 100%;
+ justify-content: space-between;
  
 
  .inputSection{
   display: flex ;   
   align-items: center;
-  justify-content: center;
-//   flex-direction: column;
+  // justify-content: center;
+  flex-direction: column;
+  
 
   input{
-    margin: 10px;
+    margin-top: 30px;
     padding: 15px;
     border-radius: 10px;
     width: 50vw;
@@ -20,14 +26,41 @@
     align-items: center;
     margin-left: 5px;
   }
-
+.dropDownTags{
   
+  display: flex;
+  align-items: center;
+  margin-left: 5px;
+  cursor: pointer;
+ 
+  
+
+  .tags{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    width: 200px;
+    height: 200px;
+    flex-wrap: wrap;
+
+    .tagline{
+      border: 1px solid #F3F3F5;
+      border-radius: 5px;
+      padding: 2px;
+      background-color: #F3F3F5;
+      // margin: 5px;
+    }
+  }
 }
+  
+
 
 .searchIteams{
+    // display: flex;
+    // align-items: center;
     
-    align-items: center;
-    justify-content: center;
+    
+    
     width: 50vw;
     margin: 15px;
     padding-left: 10px;
@@ -37,9 +70,23 @@
     border-radius: 5px;
 
     .searchProblem{
-        width: 50vw;
+        
+        width: 70vw;
         height: 10vh;
     }
   
   }
+}
+
+.allButtons{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+ 
+
+  .button{
+    margin-left: 10px;
+    margin-right: 10px;
+  }
+}
 }

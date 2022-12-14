@@ -20,19 +20,21 @@ import AutocompleteSearch from "./components/SearchBar/searchBar";
 // import Carousel from "./components/test/test";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.min.js';
+import Navbar from "./components/Navbar/Navbar";
 
 
 function App() {
   return (
     <div className="App">
- 
+         
+         <Navbar />
          <Routes>
 
           
 
            <Route path="/" element={<Home />}></Route>
            <Route path="/textEditor" element={<Test />}></Route>
-           <Route path="/excali" element={<ExcalidrawComp />}></Route>
+           {/* <Route path="/excali" element={<ExcalidrawComp />}></Route> */}
 
            <Route path="/addProblem" element={<AddProblem />}></Route>
            {/* <Route path="/cars" element={<Carousel />}></Route> */}
