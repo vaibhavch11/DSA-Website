@@ -12,7 +12,7 @@ import LogoutIcon from '@mui/icons-material/Logout';
 import QueryStatsIcon from '@mui/icons-material/QueryStats';
 import "./Sidebar.scss";
 //  import data from "../../Store/TopicStore"
-import record from "../../Store/TopicStore";
+// import record from "../../Store/TopicStore";
 import {Link, Outlet } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import Content from "../../pages/content/Content"
