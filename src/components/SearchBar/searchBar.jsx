@@ -3,6 +3,7 @@ import axios from 'axios'
 import "../SearchBar/searchBar.scss"
 import Dropdown from 'react-bootstrap/Dropdown';
 import DropdownButton from 'react-bootstrap/DropdownButton';
+import { act } from 'react-dom/test-utils';
 
 function AutocompleteSearch() {
   // Use the useState hook to manage the input value and suggestions list
@@ -12,6 +13,13 @@ function AutocompleteSearch() {
   const [difficulty, setDifficulty] = useState('')
   const [companies, setCompanies] = useState([])
   const [topics, setTopics] = useState([]);
+  //getting tags from topics useState.
+
+  //choosing tags
+  const[chooseTags,setChooseTags] = useState([]);
+
+  //use to change color
+  const [active, setActive] = useState(false);
 
   console.log("here are all the topics",topics);
 
@@ -77,6 +85,7 @@ function AutocompleteSearch() {
 
     },[]);
 
+
     useEffect(()=>{
         async function getAllProblems(){
         let response=await axios({
@@ -98,7 +107,15 @@ function AutocompleteSearch() {
             return [...newArr]
         })
     })
-    },[difficulty])
+    },[difficulty,companies,chooseTags])
+
+    const handleTagClicks=(event)=>{
+      console.log("insde tag click",event.target.innerHTML);
+      setActive(!active);
+      setChooseTags((prevVal)=>{
+        return [...prevVal,event.target.innerHTML];
+      })
+    }
  
   
 
@@ -135,8 +152,20 @@ function AutocompleteSearch() {
         onChange={handleInputChange}
       />
 
-      
-    <DropdownButton id="dropdown-basic-button" title="Difficulty" className='dropDown'>
+    <div className='searchIteams'>
+      <div>
+        {suggestions.map(suggestion => (
+          <div className='searchProblem' key={suggestion}>{suggestion}</div>
+        ))}
+      </div>
+      </div>
+     
+      </div>
+
+      <div className='allButtons'>
+
+        <div className='button'>
+        <DropdownButton id="dropdown-basic-button" title="Difficulty" className='dropDown'>
       <Dropdown.Item href="#/action-1" onClick={()=>{
         setDifficulty((prevValue)=>{
             return "Easy";
@@ -155,19 +184,35 @@ function AutocompleteSearch() {
       }}
       >Hard</Dropdown.Item>
     </DropdownButton>
+        </div>
 
+
+    <div className='button'>
     <DropdownButton id="dropdown-basic-button" title="Companies" className='dropDown'>
-     {companies}
+     {companies.map((com)=>{
+      return <div>{com}</div>
+     })}
     </DropdownButton>
-     
+    </div>
+            
+    
+   <div className='button'>
+{/* geting tags data from topics useState */}
+<DropdownButton id="dropdown-basic-button" title="Tags" className='dropDownTags'>
+      <div className='tags'>
+        {topics.map((tag)=>{
+          return <span style={{ backgroundColor: active ? "#007BFE" : "rgb(234, 228, 228)" , color: active ? "white" : "black"}} className = "tagline" onClick={handleTagClicks}>{tag}</span>
+        })}
       </div>
-      <div className='searchIteams'>
-      <div>
-        {suggestions.map(suggestion => (
-          <div className='searchProblem' key={suggestion}>{suggestion}</div>
-        ))}
+    </DropdownButton>
+   </div>
+    
+
+    
       </div>
-      </div>
+      
+
+      
       
   
     </div>
