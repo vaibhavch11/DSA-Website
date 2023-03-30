@@ -12,7 +12,7 @@ const addProblemSlice=createSlice({
         prevCompanies:"",
         firstTag:"",
         tags:[],
-        tagsData:[""]
+        
         
     },
     reducers:{
@@ -34,22 +34,34 @@ const addProblemSlice=createSlice({
             state.firstTag=action.payload
             return state
         },
-        addTags:(state,action)=>{
-          state.tags.push(<input key={state.tags.length+1} type="text" placeholder="enter tags"></input>) 
-          state.tagsData.push("");
-          return state 
-        },
-        updateTags:(state,action)=>{
-            state.tagsData=state.tagsData.map((data,index)=>{
-                if(index==action.payload.index){
-                    return action.payload.text
-                }
-                return data
-            })
+        handlingTags:(state, action)=> {
+            
+            switch (action.payload.type) {
+              case 'ADD_INPUT':
+                console.log("inside add input")
+                return {
+                    ...state,
+                  tags: [...state.tags, action.payload.payload],
+                };
+                case 'UPDATE_INPUT':
+                    return {
+                        ...state,
+                        tags: action.payload.payload,
+                      };
+              default:
+                return state;
+            }
+          },
+          changeDifficulty:(state,action)=>{
+            state.difficulty=action.payload;
             return state
-        }
+          },
+          changeInComapny:(state,action)=>{
+            state.prevCompanies=action.payload
+            return state
+          }
     }
 })  
 
-export const {changeInContent,changeInTitle,changeIsClassical,updateFirstTag,addTags,updateTags} =addProblemSlice.actions
+export const {changeInContent,changeInTitle,changeIsClassical,updateFirstTag,addTags,updateTags,handlingTags,changeDifficulty,changeInComapny} =addProblemSlice.actions
 export default addProblemSlice.reducer
