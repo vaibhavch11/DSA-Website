@@ -5,14 +5,14 @@ import axios from 'axios'
 
 import { useSelector,useDispatch } from "react-redux";
 import { Dialpad } from "@mui/icons-material";
-import {changeInTitle,changeIsClassical} from '../../store/addProblemSlice'
+import {updateFirstTag, changeInTitle,changeIsClassical, addTags} from '../../store/addProblemSlice'
 import TextEditor from "../../components/JoditTextEditor/JoditEditor";
 ;
 
 
 const AddProblem=()=>{
   
-  const {titleName,content,isClassical,difficulty,prevCompanies,tags}=useSelector((state)=>
+  const {titleName,content,isClassical,difficulty,prevCompanies,tags,firstTag}=useSelector((state)=>
   {
     
     return state.addProblem
@@ -39,6 +39,13 @@ const AddProblem=()=>{
           dispatch(changeInTitle(val));
         }}></input>
         <input type="checkbox" value={isClassical} name="is classical problem or not" onClick={()=>{dispatch(changeIsClassical())}}></input>
+       
+        <input type="text" placeholder="enter tag" value={firstTag} onChange={(e)=>{
+          const val=e.target.value;
+          dispatch(updateFirstTag(val))
+        }}></input>
+     
+        
         <button onClick={()=>{console.log(titleName,content,isClassical,difficulty,prevCompanies,tags)}}>submit</button>
         <TextEditor />
         {/* <button type="submit" onClick={handleSubmit}>submit</button> */}

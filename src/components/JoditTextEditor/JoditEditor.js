@@ -15,6 +15,43 @@ const TextEditor = () => {
 		toolbarButtonSize: 'large',
 	}
     config["readonly"]=false;
+	config["spellcheck"]=true
+	config["uploader"]={
+		url: 'http://localhost:5000/api/v1/problems/uploadProblemImages',  //your upload api url
+		insertImageAsBase64URI: false,
+		imagesExtensions: ['jpg', 'png', 'jpeg', 'gif'],
+		//headers: {"token":`${db.token}`},
+		filesVariableName: function (t) {
+		  return 'files[' + t + ']';
+		}, //"files",
+		withCredentials: false,
+		pathVariableName: 'path',
+		format: 'json',
+		method: 'POST',
+		prepareData: function (formdata) {
+		  return formdata;
+		},
+
+		isSuccess:function(resp){
+			console.log(resp,"got the file successfully");
+			return !resp.error
+		},
+		process: function (resp) {
+			console.log("in process", resp.data.url)
+           return resp.data.url;
+        },
+
+		defaultHandlerSuccess: function (data, resp) {
+            var i,
+                field = 'files';
+				this.s.insertImage(data);
+                
+            
+        },
+        error: function (e) {
+            this.e.fire('errorMessage', [e.getMessage(), 'error', 4000]);
+        }
+    }
 	
 
 	return (
