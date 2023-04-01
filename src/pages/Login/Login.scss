@@ -1,68 +1,75 @@
-.login{
+.login-page {
     display: flex;
     flex-direction: column;
-    width: 100vw;
-    height: 100vh;
     align-items: center;
     justify-content: center;
-    background-color: azure;
-    
-
-
-        .container{
-           
-            display: flex;
-            flex-direction: column;
-
-
-            .loginSection{
-                display: flex;
-                flex-direction: column;
-                align-items: center;
-
-                form{
-
-                    .inputSection{
-                        margin: 10px;
-                        
-                        button{
-                            display: flex;
-                            justify-content: center;
-                            align-items: center;
-                        }
-                    }
-                    input{
-                        padding: 10px;
-                        border-radius: 5px;
-                        border: 1px solid black;
-                    }
-
-                   
-                }
-
-                
-            }
-
-            .signupSection{
-                display: flex;
-                flex-direction: column;
-
-                .signupText{
-                    display: flex;
-                    align-items: center;
-                    justify-content: center;
-                }
-
-                .signupSocial{
-                    display: flex;
-
-                    .social{
-                        background-color:aquamarine;
-                        border-radius: 20px;
-                    }
-                }
-            }
+    height: 100vh;
+    background-color: #f5f5f5;
+  
+    h1 {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+    }
+  
+    form {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 30px;
+      background-color: #DADDDB;
+  
+      label {
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 0.5rem;
+        font-size: 1.2rem;
+        width: 100%;
+  
+        input {
+          padding: 0.5rem;
+          border-radius: 0.25rem;
+          border: 1px solid #ccc;
+          font-size: 1rem;
+          margin-top: 0.5rem;
+          width: 100%;
         }
+      }
+  
+      button {
+        background-color: #007bff;
+        color: #fff;
+        padding: 0.5rem 1rem;
+        border: none;
+        border-radius: 0.25rem;
+        width: 100%;
+        font-size: 1rem;
+        margin-top: 1rem;
+        cursor: pointer;
+  
+        &:hover {
+          background-color: #0069d9;
+        }
+      }
 
-    
-}
+      .SignIn{
+        background-color: black;
+        color: #fff;
+        padding: 0.5rem 1rem;
+        border: none;
+        border-radius: 0.25rem;
+        width: 100%;
+        font-size: 1rem;
+        margin-top: 1rem;
+        cursor: pointer;
+
+        &:hover {
+          background-color: #313232;
+        }
+      }
+
+      p{
+        padding-top: 15px;
+      }
+    }
+  }
+  

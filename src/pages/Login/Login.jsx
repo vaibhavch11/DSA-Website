@@ -1,56 +1,62 @@
-import React from "react";
-import { Navbar } from "../../components/Navbar/Navbar";
+import React, { useState } from 'react';
 import "../Login/Login.scss"
-import { Navigate, useNavigate } from "react-router-dom";
-import { Link } from "react-router-dom";
+import { signInWithGoogle } from '../Firebase/Firebase';
 
-const Login = () => {
-  let navigate= useNavigate()
-  const newSignup= () =>{
-    let path='/newUser'
-    
-    navigate(path)
+function LoginPage() {
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+
+  function handleEmailChange(event) {
+    setEmail(event.target.value);
   }
- 
+
+  function handlePasswordChange(event) {
+    setPassword(event.target.value);
+  }
+
+  function handleSubmit(event) {
+    event.preventDefault();
+
+    // TODO: send email and password to authentication backend
+  }
+
   return (
-    <div className="login">
-      {/* <Navbar /> */}
+    <div className="login-page">
+      <h1>Login</h1>
+      <form onSubmit={handleSubmit}>
+        <label>
+          <input type="email" value={email} placeholder='E-mail Address' onChange={handleEmailChange} />
+        </label>
+        <label>
+          <input type="password" value={password} placeholder='Password' onChange={handlePasswordChange} />
+        </label>
+        <button type="submit">Login</button>
+        <button onClick={signInWithGoogle} className='SignIn'>SignIn With Google</button>
 
-        <div className="container">
+        <p>Don't have an account? <b>Register</b> now.</p>
 
-          <div className="loginSection">
-            <form>
-                
-              <div className="inputSection">
-                <input type="text" name="name" placeholder="username" />
-              </div>
-              <div className="inputSection">
-                <input type="password" name="name" placeholder="password" />
-              </div>
-              <div className="inputSection">
-                <button className="submit" type="submit">Login</button>
-              </div>
-              
-            </form>
-          </div>
+        {/* <h1>{localStorage.getItem("name")}</h1>
+      <h1>{localStorage.getItem("email")}</h1>
+      <img src = {localStorage.getItem("profilePic")}/> */}
 
-          <div className="signupSection">
-            <div className="signupText">
-              
-                <button className="new-user-button" onClick={newSignup}>New User Signup</button>
-                
-                </div>
-              
-             
-            <div className="signupSocial">
-              <div className="google social">google</div>
-              <div className="facebook social">facebook</div>
-              <div className="github social">github</div>
-            </div>
-          </div>
-        </div>
-      </div>
+      </form>
+
+    
+    </div>
   );
-};
+}
 
-export default Login;
+export default LoginPage;
+
+
+// import React from 'react'
+
+// function Login() {
+//   return (
+//     <div className='Login'>
+//       <button onClick={signInWithGoogle}>SignIn With Google</button>
+//     </div>
+//   );
+// }
+
+// export default Login
