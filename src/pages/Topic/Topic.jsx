@@ -21,34 +21,25 @@ const Topic = () => {
   console.log("here 1",id);
   console.log(id.id)
 
-  const [topicContent,setTopicContent]=useState([]);
+  const [topicContent,setTopicContent]=useState('');
 
   useEffect(()=>{
   async function getTopicContent(){
-    let response1=await axios({
+
+    let response=await axios({
       method:"get",
-      url:`http://localhost:5000/api/v1/topics/getTopicId/${id.id}`
+      url:`http://localhost:5000/api/v1/topics/getTopic/${id.id}`
     })
-    console.log(response1.data.data);
-    response1=response1.data.data;
-    let topicId=response1.id;
-    console.log(topicId);
-    let response2=await axios({
-      method:"get",
-      url:`http://localhost:5000/api/v1/topics/getTopicContent/${topicId}`
-    })
-   
-    response2=response2.data.data;
-    console.log(response2)
-    let tempArr=[];
-    tempArr.push(<Sidebar className="sidebar" data={response2}/>);
-    tempArr.push(<Intro className="Intro" data={response2}/>);
+    
+   let parsed_data=JSON.parse(response.data.data.data)
+   console.log(parsed_data)
     setTopicContent((topicContent)=>{
-      return [...tempArr];
+      
+      return parsed_data
     })
   }
-  getTopicContent();
-  },[id.id])
+  getTopicContent()
+  },[])
 
   
 
@@ -60,8 +51,8 @@ const Topic = () => {
           <div className='topicDiv'>
           
 
-             {topicContent[0]}
-             {topicContent[1]}
+          <div dangerouslySetInnerHTML={{__html: topicContent}} />
+             
             
             
           </div>

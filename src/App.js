@@ -24,6 +24,8 @@ import 'bootstrap/dist/js/bootstrap.min.js';
 import { Provider } from "react-redux";
 
 import Navbar from "./components/Navbar/Navbar";
+import Problem from "./pages/Problem/Problem";
+
 
 
 
@@ -35,7 +37,7 @@ function App() {
          <Routes>
 
            <Route path="/" element={<Home />}></Route>
-
+           <Route path="/problem" element={<Problem />}></Route>
            {/* <Route path="/textEditor" element={<Test />}></Route> */}
 
            {/* <Route path="/excali" element={<ExcalidrawComp />}></Route> */}
